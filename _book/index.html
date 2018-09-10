@@ -1,0 +1,297 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>API Document · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="CubePay's API makes it easy to receive or send cryptocurrency by BTC, ETH , LTC and customized ERC-20 token. More info at https://cubepay.io">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    API Document
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >API Document</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="api-document">API Document</h1>
+<h2 id="start">Start</h2>
+<p>Get <strong>client_id</strong> and <strong>client_key</strong> on <a href="https://cubepay.io" target="_blank">https://cubepay.io</a> &gt;&gt; Account Setting</p>
+<h2 id="the-url-to-the-api-service">The URL to the API service</h2>
+<ul>
+<li>Live. <a href="https://api.cubepay.ioSandbox" target="_blank">https://api.cubepay.ioSandbox</a></li>
+<li>Sandbox. <a href="https://api.sandbox.cubepay.io" target="_blank">https://api.sandbox.cubepay.io</a></li>
+</ul>
+<h2 id="request">Request</h2>
+<p>All API request with parameter using <strong>POST</strong> method<strong>.</strong></p>
+<p>All API most have parameters <strong>client_id</strong> and <strong>sign</strong>. more about Authentication.</p>
+<h2 id="response">Response</h2>
+<p>All API response process status with standard <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">HTTP Status Code</a> in header,  and with JSON format like below: </p>
+<pre><code class="lang-text">{
+data: &quot;missing client_id&quot;,
+status: 401
+}
+</code></pre>
+<p>status : status code, 200 means process success and the others code means error.</p>
+<p>data : include a structure with relation information if success, else there will content error message.</p>
+<h2 id="status-code-and-message">Status Code and message</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">status code</th>
+<th style="text-align:left">message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">success</td>
+</tr>
+<tr>
+<td style="text-align:left">400</td>
+<td style="text-align:left">process error</td>
+</tr>
+<tr>
+<td style="text-align:left">401</td>
+<td style="text-align:left">authentication fail</td>
+</tr>
+<tr>
+<td style="text-align:left">404</td>
+<td style="text-align:left">not found</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">fatal error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authentication">Authentication</h2>
+<p>Generate a <strong>sign</strong> string follow these step :</p>
+<p>1.Get <strong>client_id</strong> and <strong>client_key</strong> on <a href="https://cubepay.io" target="_blank">https://cubepay.io</a> &gt;&gt; Account Setting.</p>
+<p>2.Ascending sort your parameters by parameter&apos;s name.</p>
+<p>3.Ascending sort your parameters by parameter&apos;s name, and join to a string format in <a href="https://en.wikipedia.org/wiki/Query_string" target="_blank">Pattern of Query String</a>.  for example:</p>
+<pre><code class="lang-text">akey=100&amp;client_id=exampleclientid&amp;ekey1=100&amp;ekey2=200&amp;wkey3=250
+</code></pre>
+<p>4.Put <strong>client_key={your client key}</strong> to the end of string. The string should look lik:</p>
+<pre><code class="lang-text">akey=100&amp;client_id=exampleclientid&amp;ekey1=100&amp;ekey2=200&amp;wkey3=250&amp;client_key=exampleclientkey
+</code></pre>
+<p>5.Hash String by <strong>Sha-256</strong></p>
+<pre><code class="lang-text">SHA256(akey=100&amp;client_id=exampleclientid&amp;ekey1=100&amp;ekey2=200&amp;wkey3=250&amp;client_key=exampleclientkey)
+=
+ca3f40ae95c5dc7cd89259746d2c2476f600e9c914ac2d35f6510aadb39a1364
+</code></pre>
+<p>6.String to uppercase</p>
+<pre><code class="lang-text">sign=CA3F40AE95C5DC7CD89259746D2C2476F600E9C914AC2D35F6510AADB39A1364
+</code></pre>
+<p>7.Attach <strong>sign</strong> to parameter</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"description":"CubePay's API makes it easy to receive or send cryptocurrency by BTC, ETH , LTC and customized ERC-20 token. More info at https://cubepay.io","title":"API Document","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","livereload"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"light"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-09-10T11:49:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T14:03:43.519Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
