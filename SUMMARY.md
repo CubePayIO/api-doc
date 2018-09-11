@@ -7,8 +7,11 @@
 * [Introduction](overview/readme.md)
 * [Authentication](overview/authentication.md)
 
-## Currency
+## API
 
-* [coin](currency/coin.md)
-* [fait](currency/fait.md)
+* [currency/coin](currency/coin.md)
+* [currency/fait](currency/fait.md)
+* [payment](currency/payment.md)
+* [payment/coin](currency/payment-coin.md)
+* [payment/query](currency/payment-query.md)
 

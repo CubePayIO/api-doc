@@ -1,4 +1,10 @@
-# coin
+# currency/coin
+
+> Get list of available cryptocurrencies. 
+>
+> You can use these currencies at payment receive or send \(source\_coin\_id or pay\_coin\_id\). 
+>
+> Turn on/off at [https://cubepay.io](https://cubepay.io) &gt;&gt; Dashboard &gt;&gt; Coins
 
 {% api-method method="post" host="API\_URL" path="/currency/coin" %}
 {% api-method-summary %}
@@ -6,11 +12,23 @@ Get available cryptocurrencies
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Get list of available cryptocurrencies.  
+**Response**  
   
-You can use these currencies on source\_coin\_id or pay\_coin\_id.  
+`id` : Identity of coin.   
   
-Turn on/off at https://cubepay.io &gt;&gt; Dashboard &gt;&gt; Coins
+`symbol` : Symbol of coin.   
+  
+`name` : Coin name.   
+  
+`image` : Coin image \(64 pixel \* 64 pixel\)   
+  
+`description` : Description of coin.   
+  
+`fee_coin_id` : The coin id charge for fee \(Every customized ERC-20 token charge fee by ETH\).   
+  
+`fee` : The percentage of income will charge by fee\_coin\_id.   
+  
+`min_fee` : The min amount of fee will be charge when the income coin less than the value.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -29,22 +47,7 @@ Sign string hash by client\_id and other parameters.
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-  
-id : Identity of coin.  
-  
-symbol : Symbol of coin.  
-  
-name : Coin name.  
-  
-image : Coin image \(64 pixel \* 64 pixel\)  
-  
-description : Description of coin.  
-  
-fee\_coin\_id : The coin id charge for fee \(Every customized ERC-20 token charge fee by ETH\).  
-  
-fee : The percentage of income will charge by fee\_coin\_id.  
-  
-min\_fee : Amount of fee will be charge when the income less than the value.  
+
 {% endapi-method-response-example-description %}
 
 ```javascript
@@ -54,7 +57,7 @@ min\_fee : Amount of fee will be charge when the income less than the value.
             "id": 1,
             "symbol": "ETH",
             "name": "Ether",
-            "image": "https://common.cubepay.io/uploads/coin/1533198049.png",
+            "image": "http://common.cubepay.io/uploads/coin/1533198049.png",
             "description": "Ether",
             "fee_coin_id": 1,
             "fee": 2,
@@ -64,7 +67,7 @@ min\_fee : Amount of fee will be charge when the income less than the value.
             "id": 2,
             "symbol": "BTC",
             "name": "BitCoin",
-            "image": "https://common.cubepay.io/uploads/coin/1533198036.png",
+            "image": "http://common.cubepay.io/uploads/coin/1533198036.png",
             "description": "BitCoin",
             "fee_coin_id": 2,
             "fee": 3,
@@ -74,7 +77,7 @@ min\_fee : Amount of fee will be charge when the income less than the value.
             "id": 3,
             "symbol": "USDT",
             "name": "USDT",
-            "image": "https://common.cubepay.io/uploads/coin/1534500017.png",
+            "image": "http://common.cubepay.io/uploads/coin/1534500017.png",
             "description": "USDT",
             "fee_coin_id": 3,
             "fee": 3,
@@ -84,8 +87,8 @@ min\_fee : Amount of fee will be charge when the income less than the value.
             "id": 4,
             "symbol": "LTC",
             "name": "LiteCoin",
-            "image": "https://common.cubepay.io/uploads/coin/1535690747.png",
-            "description": "LTC",
+            "image": "http://common.cubepay.io/uploads/coin/1535690747.png",
+            "description": "",
             "fee_coin_id": 4,
             "fee": 2,
             "min_fee": 0.002
@@ -94,12 +97,12 @@ min\_fee : Amount of fee will be charge when the income less than the value.
             "id": 502,
             "symbol": "TOKEN1",
             "name": "Token1 Test",
-            "image": "https://common.cubepay.io/images/coin.png",
-            "description": "TOKEN1 Description",
+            "image": "http://common.cubepay.io/images/coin.png",
+            "description": "",
             "fee_coin_id": 1,
             "fee": 2,
             "min_fee": 0.003
-        },
+        }
     },
     "status": 200
 }
