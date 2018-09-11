@@ -1,34 +1,27 @@
-# CubePay API Document
+# Introduction
 
-CubePay's API makes it easy to receive or send cryptocurrency by BTC, ETH , LTC and customized ERC-20 token. 
-More info at https://cubepay.io
+CubePay's API makes it easy to receive or send cryptocurrency by BTC, ETH , LTC and customized ERC-20 token. More info at [https://cubepay.io](https://cubepay.io)
 
 ## Getting Start
 
 Get **client\_id** and **client\_key** on [https://cubepay.io](https://cubepay.io) &gt;&gt; Account Setting
-
 
 ## The URL to the API service
 
 * Live. [https://api.cubepay.ioSandbox](https://api.cubepay.ioSandbox)
 * Sandbox. [https://api.sandbox.cubepay.io](https://api.sandbox.cubepay.io)
 
-
 ## Request
 
 All API request with parameter using **POST** method and most have parameters **client\_id** and **sign**. more about Authentication.
 
-{% method %}
-
 ## Response
 
-All API response process status with standard [HTTP Status Code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) in header,  and with JSON format like below: 
+All API response process status with standard [HTTP Status Code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) in header, and with JSON format like below:
 
 status : status code, 200 means process success and the others code means error.
 
 data : a structure with relation information if success, else there will content error message.
-
-{% common -%}
 
 ```text
 {
@@ -36,8 +29,6 @@ data: "missing client_id",
 status: 401
 }
 ```
-
-{% endmethod %}
 
 ## Status Code and message
 
@@ -53,18 +44,19 @@ status: 401
 
 Generate a **sign** string follow these step :
 
-1.&nbsp;Ascending sort your parameters by parameter's name, and join to a string format in [Pattern of Query String](https://en.wikipedia.org/wiki/Query_string).
+1. Ascending sort your parameters by parameter's name, and join to a string format in [Pattern of Query String](https://en.wikipedia.org/wiki/Query_string).
 
 ```text
 akey=100&client_id=exampleclientid&ekey1=100&ekey2=200&wkey3=250
 ```
-2.&nbsp;Put **client\_key={your client key}** to the end of string.
+
+2. Put **client\_key={your client key}** to the end of string.
 
 ```text
 akey=100&client_id=exampleclientid&ekey1=100&ekey2=200&wkey3=250&client_key=exampleclientkey
 ```
 
-3.&nbsp;Hash String by **Sha-256**
+3. Hash String by **Sha-256**
 
 ```text
 SHA256(akey=100&client_id=exampleclientid&ekey1=100&ekey2=200&wkey3=250&client_key=exampleclientkey)
@@ -72,11 +64,11 @@ SHA256(akey=100&client_id=exampleclientid&ekey1=100&ekey2=200&wkey3=250&client_k
 ca3f40ae95c5dc7cd89259746d2c2476f600e9c914ac2d35f6510aadb39a1364
 ```
 
-4.&nbsp;String to uppercase
+4. String to uppercase
+
 ```text
 sign=CA3F40AE95C5DC7CD89259746D2C2476F600E9C914AC2D35F6510AADB39A1364
 ```
 
-5.&nbsp;Attach **sign** to parameter
+5. Attach **sign** to parameter
 
-## 

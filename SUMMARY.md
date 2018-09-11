@@ -1,11 +1,14 @@
 # Table of contents
 
+* [Introduction](README.md)
+
 ## OVERVIEW
 
-* [Introduction](README.md)
+* [Introduction](overview/readme.md)
+* [Authentication](overview/authentication.md)
 
 ## Currency
 
-* [coin](coin.md)
+* [coin](currency/coin.md)
+* [fait](currency/fait.md)
 
-* [fait](fait.md)
