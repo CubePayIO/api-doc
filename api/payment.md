@@ -10,7 +10,7 @@ If you want initial a order directly, you should use API [_**payment/coin**_](pa
 
 {% api-method method="post" host="API\_URL" path="/payment" %}
 {% api-method-summary %}
-Render coin list and payment info 
+Render coin list and payment info
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -31,12 +31,12 @@ Sign string hash by client\_id and other parameters.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="source\_coin\_id" type="string" required=true %}
-Coin id of your  original list price.  
+Coin id of your original list price.  
 Get the id from API _**currency/coin**_ or _**currency/fiat**_
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="source\_amount" type="string" required=true %}
-original list price of your price.   
+original list price of your price.  
 must be postive number and large then zero.
 {% endapi-method-parameter %}
 
@@ -50,9 +50,7 @@ Recommend be unique.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="other" type="string" required=false %}
-Other information you can pass to the payment, such as your member id, your product id or anything you want....  
-  
-We'll return the field for your at IPN\_URL.
+Other information you can pass to the payment, such as your member id, your product id or anything you want....We'll return the field for your at IPN\_URL.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="return\_url" type="string" required=false %}
@@ -60,17 +58,11 @@ The url you want your customer back to. it will show a link button on the coin p
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="ipn\_url" type="string" required=false %}
-The notify url . When the payment finish\(only success\), we'll sending a request within transaction information by **POST** method.   
-  
-The parameter we sending see _**payment/query**_.  
-  
-You should synchronize your order according our notify, and response a string _**`success`**_ tell as you have receive, else we'll notify continue up to 10 times.  
+The notify url . When the payment finish\(only success\), we'll sending a request within transaction information by **POST** method.The parameter we sending see _**payment/query**_.You should synchronize your order according our notify, and response a string `success` tell as you have receive, else we'll notify continue up to 10 times.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="send\_coin\_id" type="string" required=false %}
-Coin id you want to send back to your customer, we'll send this coin to **receive\_address** you define.  
-  
-If you pass value on send\_coin\_id, you should pass value on receive\_address and send\_amount too.
+Coin id you want to send back to your customer, we'll send this coin to **receive\_address** you define.If you pass value on send\_coin\_id, you should pass value on receive\_address and send\_amount too.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="receive\_address" type="string" required=false %}
@@ -78,9 +70,7 @@ Coin address you want to send back to your customer.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="send\_amount" type="string" required=false %}
-Coin amount you want to send back to your customer.  
-  
-Must be postive number and large then zero, and make sure you have enough amout\(amount you want to send back and fee\) of the send coin.
+Coin amount you want to send back to your customer.Must be postive number and large then zero, and make sure you have enough amout\(amount you want to send back and fee\) of the send coin.
 {% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
 {% endapi-method-request %}
@@ -101,6 +91,4 @@ Must be postive number and large then zero, and make sure you have enough amout\
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-
 

@@ -1,8 +1,8 @@
 # currency/fait
 
-> Get list of available fiat currenies. 
+> Get list of available fiat currenies.
 >
-> You can **only** use these fiat currencies for your product's original list price, not for actual receive payment currency. 
+> You can **only** use these fiat currencies for your product's original list price, not for actual receive payment currency.
 >
 > When pass the parameter source\_coin\_id to Payment API, we convert currency by current exchange rate between currency of list price and actual paid currency.
 
@@ -14,9 +14,9 @@ Get available fiat currencies
 {% api-method-description %}
 **Response**  
   
-`id` : Identity of coin.   
+`id` : Identity of coin.  
   
-`symbol` : Symbol of coin.   
+`symbol` : Symbol of coin.  
   
 `name` : Coin name.
 {% endapi-method-description %}
@@ -70,6 +70,4 @@ Sign string hash by client\_id and other parameters.
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-
 

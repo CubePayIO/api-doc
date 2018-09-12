@@ -1,8 +1,8 @@
 # currency/coin
 
-> Get list of available cryptocurrencies. 
+> Get list of available cryptocurrencies.
 >
-> You can use these currencies at payment receive or send \(source\_coin\_id or pay\_coin\_id\). 
+> You can use these currencies at payment receive or send \(source\_coin\_id or pay\_coin\_id\).
 >
 > Turn on/off at [https://cubepay.io](https://cubepay.io) &gt;&gt; Dashboard &gt;&gt; Coins
 
@@ -14,19 +14,17 @@ Get available cryptocurrencies
 {% api-method-description %}
 **Response**  
   
-`id` : Identity of coin.   
+`id` : Identity of coin.  
   
-`symbol` : Symbol of coin.   
+`symbol` : Symbol of coin.  
   
-`name` : Coin name.   
+`name` : Coin name.`image` : Coin image \(64 pixel \* 64 pixel\)  
   
-`image` : Coin image \(64 pixel \* 64 pixel\)   
+`description` : Description of coin.  
   
-`description` : Description of coin.   
+`fee_coin_id` : The coin id charge for fee \(Every customized ERC-20 token charge fee by ETH\).  
   
-`fee_coin_id` : The coin id charge for fee \(Every customized ERC-20 token charge fee by ETH\).   
-  
-`fee` : The percentage of income will charge by fee\_coin\_id.   
+`fee` : The percentage of income will charge by fee\_coin\_id.  
   
 `min_fee` : The min amount of fee will be charge when the income coin less than the value.
 {% endapi-method-description %}
@@ -111,6 +109,4 @@ Sign string hash by client\_id and other parameters.
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-
 

@@ -10,8 +10,8 @@
 >
 > When you define the parameter _send\_coin\_id_, _receive\_address_, _send\_amount_ to send back coin to your customer, we'll lock the amount of send coin and fee temporarily and unlock until payment finish or expired. It will consider two situations:
 >
-> * Send coin is official coin\(not customize ERC-20 token\) : we'll lock  _`send back amount of the official coin + min fee of official`_
-> * Send coin is customize ERC-20 token : we'll lock _`send back amount of the customize ERC-20 token + min fee of ETH`_
+> * Send coin is official coin\(not customize ERC-20 token\) : we'll lock  `send back amount of the official coin + min fee of official`
+> * Send coin is customize ERC-20 token : we'll lock `send back amount of the customize ERC-20 token + min fee of ETH`
 
 {% api-method method="post" host="API\_URL" path="/payment/coin" %}
 {% api-method-summary %}
@@ -46,7 +46,7 @@ Get the id from API _**currency/coin**_ or _**currency/fiat**_
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="source\_amount" type="string" required=true %}
-original list price of your product.   
+original list price of your product.  
 must be postive number and large then zero.
 {% endapi-method-parameter %}
 
@@ -60,9 +60,7 @@ Recommend be unique.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="other" type="string" required=false %}
-Other information you can pass to the payment, such as your member id, your product id or anything you want....  
-  
-We'll return the field for your at IPN\_URL.
+Other information you can pass to the payment, such as your member id, your product id or anything you want....We'll return the field for your at IPN\_URL.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="return\_url" type="string" required=false %}
@@ -70,17 +68,11 @@ The url you want your customer back to. it will show a link button on the coin p
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="ipn\_url" type="string" required=false %}
-The notify url . When the payment finish\(only success\), we'll sending a request within transaction information by **POST** method.   
-  
-The parameter we sending see _**payment/query**_.  
-  
-You should synchronize your order according our notify, and response a string _**`success`**_ tell as you have receive, else we'll notify continue up to 10 times.  
+The notify url . When the payment finish\(only success\), we'll sending a request within transaction information by **POST** method.The parameter we sending see _**payment/query**_.You should synchronize your order according our notify, and response a string `success` tell as you have receive, else we'll notify continue up to 10 times.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="send\_coin\_id" type="string" required=false %}
-Coin id you want to send back to your customer, we'll send this coin to **receive\_address** you define.  
-  
-If you pass value on send\_coin\_id, you should pass value on receive\_address and send\_amount too.
+Coin id you want to send back to your customer, we'll send this coin to **receive\_address** you define.If you pass value on send\_coin\_id, you should pass value on receive\_address and send\_amount too.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="receive\_address" type="string" required=false %}
@@ -88,9 +80,7 @@ Coin address you want to send back to your customer.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="send\_amount" type="string" required=false %}
-Coin amount you want to send back to your customer.  
-  
-Must be postive number and large then zero, and make sure you have enough amout\(amount you want to send back and fee\) of the send coin.
+Coin amount you want to send back to your customer.Must be postive number and large then zero, and make sure you have enough amout\(amount you want to send back and fee\) of the send coin.
 {% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
 {% endapi-method-request %}
@@ -144,6 +134,4 @@ Must be postive number and large then zero, and make sure you have enough amout\
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-
 

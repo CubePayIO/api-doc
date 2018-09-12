@@ -4,7 +4,7 @@
 
 ## OVERVIEW
 
-* [Introduction](overview/readme.md)
+* [Introduction](overview/overview.md)
 * [Authentication](overview/authentication.md)
 
 ## API
