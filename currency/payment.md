@@ -10,7 +10,7 @@ If you want initial a order directly, you should use API [_**payment/coin**_](pa
 
 {% api-method method="post" host="API\_URL" path="/payment" %}
 {% api-method-summary %}
-Render payable coin page 
+Render coin list and payment info 
 {% endapi-method-summary %}
 
 {% api-method-description %}
