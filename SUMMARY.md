@@ -9,9 +9,9 @@
 
 ## API
 
-* [currency/coin](currency/coin.md)
-* [currency/fait](currency/fait.md)
-* [payment](currency/payment.md)
-* [payment/coin](currency/payment-coin.md)
-* [payment/query](currency/payment-query.md)
+* [currency/coin](api/coin.md)
+* [currency/fait](api/fait.md)
+* [payment](api/payment.md)
+* [payment/coin](api/payment-coin.md)
+* [payment/query](api/payment-query.md)
 
