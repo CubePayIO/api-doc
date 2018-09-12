@@ -6,7 +6,7 @@
 >
 > When pass the parameter source\_coin\_id to Payment API, we convert currency by current exchange rate between currency of list price and actual paid currency.
 
-{% api-method method="post" host="API\_URL" path="/api/fiat" %}
+{% api-method method="post" host="API\_URL" path="/currency/fiat" %}
 {% api-method-summary %}
 Get available fiat currencies
 {% endapi-method-summary %}
