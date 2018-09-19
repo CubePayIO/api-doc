@@ -3,9 +3,7 @@
 > Initial order with specific coin and amount that customer use to pay.
 >
 > Order will expire after 6 hours.
->
-> We provide refund function on [https://cubepay.io](https://cubepay.io) &gt;&gt; Dashboard &gt;&gt; Payments\(but you can't get back the send coin if you had defined\).
->
+
 > If the coin is customize ERC20 token, make sure that you have enough balance of ETH for payment fee\(See [_**currency/coin**_](coin.md) response\), we'll lock the fee temporarily and unlock until payment finish or expired.
 >
 > When you define the parameter _send\_coin\_id_, _receive\_address_, _send\_amount_ to send back coin to your customer, we'll lock the amount of send coin and fee temporarily and unlock until payment finish or expired. It will consider two situations:
