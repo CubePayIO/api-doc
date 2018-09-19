@@ -6,12 +6,12 @@
 >
 > We provide refund function on [https://cubepay.io](https://cubepay.io) &gt;&gt; Dashboard &gt;&gt; Payments\(but you can't get back the send coin if you had defined\).
 >
-> If the coin is your customize ERC-20 token, make sure you have enough blance of ETH for payment fee\(See [_**currency/coin**_](coin.md) response\), we'll lock the fee temporarily and unlock until payment finish or expired.
+> If the coin is customize ERC20 token, make sure that you have enough balance of ETH for payment fee\(See [_**currency/coin**_](coin.md) response\), we'll lock the fee temporarily and unlock until payment finish or expired.
 >
 > When you define the parameter _send\_coin\_id_, _receive\_address_, _send\_amount_ to send back coin to your customer, we'll lock the amount of send coin and fee temporarily and unlock until payment finish or expired. It will consider two situations:
 >
-> * Send coin is official coin\(not customize ERC-20 token\) : we'll lock  `send back amount of the official coin + min fee of official`
-> * Send coin is customize ERC-20 token : we'll lock `send back amount of the customize ERC-20 token + min fee of ETH`
+> * Send coin is official coin\(not customize ERC20 token\) : we'll lock  `send back amount of the official coin + min fee of official coin`
+> * Send coin is customize ERC20 token : we'll lock `send back amount of the customize ERC20 token + min fee of ETH`
 
 {% api-method method="post" host="API\_URL" path="/payment/coin" %}
 {% api-method-summary %}
@@ -21,7 +21,7 @@ Init payment with specific coin
 {% api-method-description %}
 **Response**  
   
-See _**payment/query**_ response
+See response of _**payment/query**_ 
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -121,10 +121,18 @@ Coin amount you want to send back to your customer.Must be postive number and la
             },
             "source_amount": 500,
             "rate": 199124.20804479,
-            "send_coin": [],
-            "send_amount": 0,
-            "receive_address": null
+            "fee": {
+                "amount": 0.003,
+                "coin": {
+                    "id": 1,
+                    "symbol": "ETH",
+                    "name": "Ether",
+                    "image": "http://common.cubepay.io/uploads/coin/1533198049.png",
+                    "description": "Ether"
+                }
+             }
         },
+        "send_info": null,
         "refund": null
     },
     "status": 200

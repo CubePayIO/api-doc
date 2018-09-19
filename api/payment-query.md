@@ -53,7 +53,7 @@ parameter `id` or `merchant_transaction` must required at least one.
               `description` : Description of coin.  
         }  
   
-         `address` : The blockchain address for the payment, you can lead your customer pay coin to the address.   
+         `address` : The blockchain address of the payment, you can lead your customer pay coin to the address.   
   
          `qrcode` : QR cod of blockchain address for the payment.   
   
@@ -78,11 +78,28 @@ parameter `id` or `merchant_transaction` must required at least one.
                `description` : Description of coin. }  
           }  
   
-          `source_amount` : original list price of your price.   
+          `fee` : \[Object\]  Fee information of payment receive  
+          {   
+                `amount` : Amount of fee.   
   
-          `rate` : currency exchange rate between `coin` and `source_coin` , _rate = coin / source\_coin_  
+                 `coin` :  \[Object\] Coin you will receive.   
+                {   
+                       `id` : Identity of coin. symbol : Symbol of coin.   
+                         
+                       `name` : Coin name.   
   
-          `send_coin` : \[Object\] The coin send back to your customer.  
+                       `image` : Coin image \(64 pixel \* 64 pixel\)   
+  
+                      `description` : Description of coin.   
+                 }  
+  
+           }   
+  
+}  
+  
+`send_info` : \[Object\] Send back coin information if have define.  
+{  
+          `coin` : \[Object\] Coin you will receive.   
           {   
                 `id` : Identity of coin.   
   
@@ -93,11 +110,29 @@ parameter `id` or `merchant_transaction` must required at least one.
                 `image` : Coin image \(64 pixel \* 64 pixel\)   
   
                 `description` : Description of coin.   
-           }   
+          }  
   
-          `send_amount` : Coin address send back to your customer.   
+          `amount` : Coin amount send back to your customer.  
   
           `receive_address` : Coin address send back to your customer.  
+  
+          `fee` : \[Object\] Fee information of payment receive   
+          {   
+                 `amount` : Amount of fee.   
+                   
+                 `coin` : \[Object\] Coin you will receive.   
+                 {   
+                        `id` : Identity of coin.   
+  
+                        `symbol` : Symbol of coin.   
+  
+                        `name` : Coin name.   
+  
+                        `image` : Coin image \(64 pixel \* 64 pixel\)   
+  
+                       `description` : Description of coin.   
+                 }  
+           }  
 }  
   
 `refund_info` : \[Object\] If the payment has finish and refund, response the refund info.   
@@ -166,15 +201,37 @@ Sign string hash by client\_id and other parameters.
                 },
                 "source_amount": 100,
                 "rate": 1,
-                "send_coin": {
-                    "id": 502,
-                    "symbol": "TOKEN1",
-                    "name": "Token1 Test",
-                    "image": "http://common.cubepay.io/images/coin.png",
-                    "description": "TOKEN1"
+                "fee": {
+                    "amount": 0.003,
+                    "coin": {
+                        "id": 1,
+                        "symbol": "ETH",
+                        "name": "Ether",
+                        "image": "http://common.cubepay.io/uploads/coin/1533198049.png",
+                        "description": "Ether"
+                    }
+                 }
+            },
+            "send_info": {
+                "coin": {
+                    "id": 1,
+                    "symbol": "ETH",
+                    "name": "Ether",
+                    "image": "http://common.cubepay.io/uploads/coin/1533198049.png",
+                    "description": "Ether"
                 },
-                "send_amount": 5000,
-                "receive_address": "0x5A0DA1fD7f6b084A81F07fb9d641D295b2E7e669"
+                "amount": 1,
+                "receive_address": "0x8a7fe9893c63f718Ad066a1dd48458eC47F2FbaD",
+                "fee": {
+                    "amount": 0.003,
+                    "coin": {
+                        "id": 1,
+                        "symbol": "ETH",
+                        "name": "Ether",
+                        "image": "http://common.cubepay.io/uploads/coin/1533198049.png",
+                        "description": "Ether"
+                    }
+                }
             },
             "refund_info": {
                 "amount": "89.700000",
