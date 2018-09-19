@@ -132,8 +132,7 @@ Coin amount you want to send back to your customer.Must be postive number and la
                 }
              }
         },
-        "send_info": null,
-        "refund": null
+        "send_info": null
     },
     "status": 200
 }

@@ -134,13 +134,6 @@ parameter `id` or `merchant_transaction` must required at least one.
                  }  
            }  
 }  
-  
-`refund_info` : \[Object\] If the payment has finish and refund, response the refund info.   
-{   
-          `amount` : Amount of refund.   
-  
-          `to_address` : Address of refund to.   
-}
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -232,10 +225,6 @@ Sign string hash by client\_id and other parameters.
                         "description": "Ether"
                     }
                 }
-            },
-            "refund_info": {
-                "amount": "89.700000",
-                "to_address": "0x5A0DA1fD7f6b084A81F07fb9d641D295b2E7e669"
             }
         }
     ],
