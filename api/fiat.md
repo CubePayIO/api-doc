@@ -1,4 +1,4 @@
-# currency/fait
+# currency/fiat
 
 > Get list of available fiat currenies.
 >
