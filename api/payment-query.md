@@ -14,8 +14,6 @@ Payment Status define as
 | 2 | paid |
 | 3 | cryptocurrency sended |
 | 4 | completed |
-| 5 | refunding |
-| 6 | refunded |
 
 {% api-method method="post" host="API\_URL" path="/payment/query" %}
 {% api-method-summary %}
