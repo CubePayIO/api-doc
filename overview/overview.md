@@ -8,7 +8,7 @@ Get **client\_id** and **client\_key** at [https://cubepay.io](https://cubepay.i
 
 ## The URL to the API service
 
-* Live. [https://api.cubepay.ioSandbox](https://api.cubepay.ioSandbox)
+* Live. [https://api.cubepay.io](https://api.cubepay.ioSandbox)
 * Sandbox. [https://api.sandbox.cubepay.io](https://api.sandbox.cubepay.io)
 
 ## Request
