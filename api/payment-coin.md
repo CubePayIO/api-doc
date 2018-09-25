@@ -2,12 +2,13 @@
 
 > Initial payment with specific coin. The payment will expire after 6 hours.
 
-> If the coin is customize ERC20 token, make sure that you have enough balance of ETH for payment fee\(See [_**currency/coin**_](coin.md) response\), we'll lock the fee temporarily and unlock until payment finish or expired.
+> If the coin is customize ERC20 token, make sure that you have enough balance of ETH for payment fee\(See [_**currency/coin**_](coin.md) response\), we'll lock the **fee** temporarily and unlock until payment finished or expired.
 >
-> When you define the parameter _send\_coin\_id_, _receive\_address_, _send\_amount_ to send back coin to your customer, we'll lock the amount of send coin and fee temporarily and unlock until payment finish or expired. It will consider two situations:
+> When you define the parameter `send_coin_id`, `receive_address`, `send_amount` for sending coin to your customer, we'll lock the **amount of send coin** and **fee** temporarily and unlock until payment finished or expired. It will consider two situations:
 >
-> * Send coin is official coin\(not customize ERC20 token\) : we'll lock  `send back amount of the official coin + min fee of official coin`
-> * Send coin is customize ERC20 token : we'll lock `send back amount of the customize ERC20 token + min fee of ETH`
+> * Send coin is official coin\(ETH, BTC, LTC\) : we'll lock  `sending amount of the coin + min fee of the coin`
+
+> * Send coin is customize ERC20 token : we'll lock `sending amount of the token + min fee of ETH`
 
 {% api-method method="post" host="API\_URL" path="/payment/coin" %}
 {% api-method-summary %}
@@ -95,7 +96,7 @@ Coin amount you want to send back to your customer.Must be postive number and la
         "id": "C1536678153791231775",
         "status": 0,
         "status_message": "unpaid",
-        "pay_url": "http://cubepay.io/payment/pay?id=C1536678153791231775",
+        "pay_url": "https://cubepay.io/payment/pay?id=C1536678153791231775",
         "pay_info": {
             "coin": {
                 "id": 2,

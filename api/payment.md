@@ -1,10 +1,10 @@
 # payment
 
-> Render a page\(but not initial a payment yet\) within these information:
+> Render a page within these information:
 >
+> * Payable coin list and corresponding price, you can enable/disable coin on [https://cubepay.io](https://cubepay.io) &gt;&gt; Dashboard &gt;&gt; Coins.
 > * Your shop information
 > * Item name
-> * payable coin list and corresponding price, you can enable/disable the coin on [https://cubepay.io](https://cubepay.io) &gt;&gt; Dashboard &gt;&gt; Coins.
 
 If you want initial a order directly, you should use API [_**payment/coin**_](payment-coin.md).
 

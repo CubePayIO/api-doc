@@ -2,7 +2,7 @@
 
 > Query payment information by specific identity.
 >
-> It is useful for checking order progress or double confirm the finishd order.
+> It is useful for checking order progress or double confirm finished order.
 
 Payment Status define as
 
@@ -12,7 +12,7 @@ Payment Status define as
 | 0 | init |
 | 1 | paying |
 | 2 | paid |
-| 3 | cryptocurrency sended |
+| 3 | coin sended |
 | 4 | completed |
 
 {% api-method method="post" host="API\_URL" path="/payment/query" %}
@@ -24,6 +24,7 @@ Query payment information
 **Request**  
   
 parameter `id` or `merchant_transaction` must required at least one.  
+  
   
 **Response**  
   
@@ -168,7 +169,7 @@ Sign string hash by client\_id and other parameters.
             "id": "C1536292666260718848",
             "status": 6,
             "status_message": "Refunded",
-            "pay_url": "http://cubepay.io/payment/pay?id=C1536292666260718848",
+            "pay_url": "https://cubepay.io/payment/pay?id=C1536292666260718848",
             "pay_info": {
                 "coin": {
                     "id": 3,
