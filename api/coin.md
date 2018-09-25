@@ -2,7 +2,7 @@
 
 > Get list of available cryptocurrencies.
 >
-> You can use these currencies at payment receive or send \(source\_coin\_id or pay\_coin\_id\).
+> You can use these currencies at payment API for receive/send coin.
 >
 > Turn on/off at [https://cubepay.io](https://cubepay.io) &gt;&gt; Dashboard &gt;&gt; Coins
 
