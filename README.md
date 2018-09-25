@@ -4,7 +4,7 @@ CubePay's API makes it easy to receive or send cryptocurrency by BTC, ETH , LTC 
 
 ## Getting Start
 
-Get **client\_id** and **client\_key** on [https://cubepay.io](https://cubepay.io) &gt;&gt; Account Setting
+Get `client_id` and `client_secret` on [https://cubepay.io](https://cubepay.io) &gt;&gt; Account Setting
 
 ## The URL to the API service
 
@@ -13,7 +13,7 @@ Get **client\_id** and **client\_key** on [https://cubepay.io](https://cubepay.i
 
 ## Request
 
-All API request with parameter using **POST** method and most have parameters **client\_id** and **sign**. more about Authentication.
+All API request with parameter using **POST** method and most have parameters `client_id` and `sign`. more about Authentication.
 
 ## Response
 
@@ -42,18 +42,18 @@ status: 401
 
 ## Authentication
 
-Generate a **sign** string follow these step :
+Generate `sign` follow these step :
 
 1. Ascending sort your parameters by parameter's name, and join to a string format in [Pattern of Query String](https://en.wikipedia.org/wiki/Query_string).
 
 ```text
-akey=100&client_id=exampleclientid&ekey1=100&ekey2=200&wkey3=250
+akey=100&client_id=exampleclientid&ekey1=100&ekey2=300&wkey3=250
 ```
 
-2. Put **client\_key={your client key}** to the end of string.
+2. Put `client_secret={your client secret}` to the end of string.
 
 ```text
-akey=100&client_id=exampleclientid&ekey1=100&ekey2=200&wkey3=250&client_key=exampleclientkey
+akey=100&client_id=exampleclientid&ekey1=100&ekey2=200&wkey3=250&client_secret=exampleclientsecret
 ```
 
 3. Hash String by **Sha-256**
@@ -64,11 +64,22 @@ SHA256(akey=100&client_id=exampleclientid&ekey1=100&ekey2=200&wkey3=250&client_k
 ca3f40ae95c5dc7cd89259746d2c2476f600e9c914ac2d35f6510aadb39a1364
 ```
 
-4. String to uppercase
+4. String to uppercase and you'll get the signature finally.
 
 ```text
 sign=CA3F40AE95C5DC7CD89259746D2C2476F600E9C914AC2D35F6510AADB39A1364
 ```
 
-5. Attach **sign** to parameter
+5. Append `sign` to **POST** parameter and sending,  not need in sequence, it'll look like
+
+```text
+ekey1=100
+akey=100
+wkey3=250
+client_id=exampleclientid
+ekey2=300
+sign=CA3F40AE95C5DC7CD89259746D2C2476F600E9C914AC2D35F6510AADB39A1364
+```
+
+
 
