@@ -64,7 +64,9 @@ The url you want your customer back to. it will show a link button on the coin p
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="ipn\_url" type="string" required=false %}
-The notify url . When the payment finish\(only success\), we'll sending a request within transaction information by **POST** method.The parameter we sending see _**payment/query**_.You should synchronize your order according our notify, and response a string `success` tell as you have receive, else we'll notify continue up to 10 times.
+Notify url . When the payment finish\(success\), we'll sending transaction information as your request parameter by **POST** method.You should synchronize your order according our notification, and response a string `success` tell as you have receive, else we'll notify continue up to 10 times.  
+  
+The **POST** parameters are : `client_id`, `source_coin_id`, `source_amount`, `item_name`, `merchant_transaction_id`, `other`, `send_coin_id`, `send_amount`, `receive_address`.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="send\_coin\_id" type="string" required=false %}
