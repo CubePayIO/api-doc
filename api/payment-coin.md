@@ -1,8 +1,6 @@
 # payment/coin
 
-> Initial order with specific coin and amount that customer use to pay.
->
-> Order will expire after 6 hours.
+> Initial payment with specific coin. The payment will expire after 6 hours.
 
 > If the coin is customize ERC20 token, make sure that you have enough balance of ETH for payment fee\(See [_**currency/coin**_](coin.md) response\), we'll lock the fee temporarily and unlock until payment finish or expired.
 >

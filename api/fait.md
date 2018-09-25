@@ -2,7 +2,7 @@
 
 > Get list of available fiat currenies.
 >
-> You can **only** use these fiat currencies for your product's original list price, not for receive, we'll convert value by exchange rate between currency of list price and currency of actual paid.
+> You can **only** use these fiat currencies for your product's original list price, not for receive/send, we'll convert value by exchange rate between currency of list price and currency of actual paid.
 
 {% api-method method="post" host="API\_URL" path="/currency/fiat" %}
 {% api-method-summary %}
